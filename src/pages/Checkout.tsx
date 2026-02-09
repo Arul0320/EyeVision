@@ -9,7 +9,7 @@ const Checkout = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({ name: "", email: "", address: "", city: "", zip: "", cardNumber: "", expiry: "", cvv: "" });
 
-  const shipping = totalPrice >= 200 ? 0 : 14.99;
+  const shipping = totalPrice >= 5000 ? 0 : 499;
   const total = totalPrice + shipping;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -98,17 +98,17 @@ const Checkout = () => {
               {items.map((item) => (
                 <div key={item.product.id} className="flex justify-between text-sm">
                   <span className="text-muted-foreground">{item.product.name} × {item.quantity}</span>
-                  <span className="text-foreground">${(item.product.price * item.quantity).toFixed(2)}</span>
+                  <span className="text-foreground">₹{(item.product.price * item.quantity).toLocaleString("en-IN")}</span>
                 </div>
               ))}
             </div>
             <div className="space-y-2 border-t border-border pt-3">
-              <div className="flex justify-between text-sm"><span className="text-muted-foreground">Subtotal</span><span className="text-foreground">${totalPrice.toFixed(2)}</span></div>
-              <div className="flex justify-between text-sm"><span className="text-muted-foreground">Shipping</span><span className="text-foreground">{shipping === 0 ? "Free" : `$${shipping}`}</span></div>
+              <div className="flex justify-between text-sm"><span className="text-muted-foreground">Subtotal</span><span className="text-foreground">₹{totalPrice.toLocaleString("en-IN")}</span></div>
+              <div className="flex justify-between text-sm"><span className="text-muted-foreground">Shipping</span><span className="text-foreground">{shipping === 0 ? "Free" : `₹${shipping}`}</span></div>
             </div>
             <div className="mt-3 flex justify-between border-t border-border pt-3 text-lg font-bold">
               <span className="text-foreground">Total</span>
-              <span className="text-gradient-gold">${total.toFixed(2)}</span>
+              <span className="text-gradient-gold">₹{total.toLocaleString("en-IN")}</span>
             </div>
             <button type="submit" className="mt-6 w-full rounded-xl bg-primary py-3 text-sm font-semibold text-primary-foreground shadow-gold transition-all hover:opacity-90">
               Place Order
