@@ -34,7 +34,7 @@ const OrderConfirmation = () => {
   }
 
   const whatsappMessage = encodeURIComponent(
-    `🔭 *AstroMart Order Confirmation*\n\nOrder ID: ${order.orderId}\nCustomer: ${order.name}\n\n*Items:*\n${order.items.map((i) => `• ${i.name} × ${i.qty} — $${(i.price * i.qty).toFixed(2)}`).join("\n")}\n\n*Total: $${order.total.toFixed(2)}*\n\nThank you for shopping at AstroMart! 🌟`
+    `🔭 *AstroMart Order Confirmation*\n\nOrder ID: ${order.orderId}\nCustomer: ${order.name}\n\n*Items:*\n${order.items.map((i) => `• ${i.name} × ${i.qty} — ₹${(i.price * i.qty).toLocaleString("en-IN")}`).join("\n")}\n\n*Total: ₹${order.total.toLocaleString("en-IN")}*\n\nThank you for shopping at AstroMart! 🌟`
   );
 
   const whatsappUrl = `https://wa.me/918525990069?text=${whatsappMessage}`;
@@ -56,13 +56,13 @@ const OrderConfirmation = () => {
             {order.items.map((item, i) => (
               <div key={i} className="flex justify-between text-sm">
                 <span className="text-muted-foreground">{item.name} × {item.qty}</span>
-                <span className="text-foreground">${(item.price * item.qty).toFixed(2)}</span>
+                <span className="text-foreground">₹{(item.price * item.qty).toLocaleString("en-IN")}</span>
               </div>
             ))}
           </div>
           <div className="mt-3 flex justify-between border-t border-border pt-3 font-bold">
             <span className="text-foreground">Total</span>
-            <span className="text-gradient-gold">${order.total.toFixed(2)}</span>
+            <span className="text-gradient-gold">₹{order.total.toLocaleString("en-IN")}</span>
           </div>
         </div>
 

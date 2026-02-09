@@ -67,8 +67,8 @@ const ProductDetail = () => {
             </div>
 
             <div className="mb-6 flex items-baseline gap-3">
-              <span className="text-3xl font-bold text-foreground">${product.price.toFixed(2)}</span>
-              {product.originalPrice && <span className="text-lg text-muted-foreground line-through">${product.originalPrice.toFixed(2)}</span>}
+              <span className="text-3xl font-bold text-foreground">₹{product.price.toLocaleString("en-IN")}</span>
+              {product.originalPrice && <span className="text-lg text-muted-foreground line-through">₹{product.originalPrice.toLocaleString("en-IN")}</span>}
             </div>
 
             <p className="mb-8 leading-relaxed text-muted-foreground">{product.description}</p>
@@ -132,7 +132,7 @@ const ProductDetail = () => {
                     <div className="p-3">
                       <p className="text-xs text-primary">{p.brand}</p>
                       <h3 className="text-sm font-medium text-foreground">{p.name}</h3>
-                      <p className="text-sm font-bold text-foreground">${p.price.toFixed(2)}</p>
+                      <p className="text-sm font-bold text-foreground">₹{p.price.toLocaleString("en-IN")}</p>
                     </div>
                   </Link>
                 </div>

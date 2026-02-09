@@ -44,9 +44,9 @@ const ProductCard = ({ product }: { product: Product }) => {
         </div>
         <div className="flex items-center justify-between">
           <div className="flex items-baseline gap-2">
-            <span className="text-lg font-bold text-foreground">${product.price.toFixed(2)}</span>
+            <span className="text-lg font-bold text-foreground">₹{product.price.toLocaleString("en-IN")}</span>
             {product.originalPrice && (
-              <span className="text-sm text-muted-foreground line-through">${product.originalPrice.toFixed(2)}</span>
+              <span className="text-sm text-muted-foreground line-through">₹{product.originalPrice.toLocaleString("en-IN")}</span>
             )}
           </div>
           <button

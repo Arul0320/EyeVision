@@ -46,7 +46,7 @@ const Cart = () => {
                       <span className="w-6 text-center text-sm text-foreground">{item.quantity}</span>
                       <button onClick={() => updateQuantity(item.product.id, item.quantity + 1)} className="text-muted-foreground hover:text-foreground"><Plus className="h-3 w-3" /></button>
                     </div>
-                    <span className="font-semibold text-foreground">${(item.product.price * item.quantity).toFixed(2)}</span>
+                    <span className="font-semibold text-foreground">₹{(item.product.price * item.quantity).toLocaleString("en-IN")}</span>
                     <button onClick={() => removeItem(item.product.id)} className="text-destructive hover:opacity-80"><Trash2 className="h-4 w-4" /></button>
                   </div>
                 </div>
@@ -58,12 +58,12 @@ const Cart = () => {
           <div className="h-fit rounded-xl border border-border bg-gradient-card p-6">
             <h2 className="mb-4 font-serif text-xl font-semibold text-foreground">Order Summary</h2>
             <div className="space-y-3 border-b border-border pb-4">
-              <div className="flex justify-between text-sm"><span className="text-muted-foreground">Subtotal</span><span className="text-foreground">${totalPrice.toFixed(2)}</span></div>
-              <div className="flex justify-between text-sm"><span className="text-muted-foreground">Shipping</span><span className="text-foreground">{totalPrice >= 200 ? "Free" : "$14.99"}</span></div>
+              <div className="flex justify-between text-sm"><span className="text-muted-foreground">Subtotal</span><span className="text-foreground">₹{totalPrice.toLocaleString("en-IN")}</span></div>
+              <div className="flex justify-between text-sm"><span className="text-muted-foreground">Shipping</span><span className="text-foreground">{totalPrice >= 5000 ? "Free" : "₹499"}</span></div>
             </div>
             <div className="mt-4 flex justify-between text-lg font-bold">
               <span className="text-foreground">Total</span>
-              <span className="text-gradient-gold">${(totalPrice + (totalPrice >= 200 ? 0 : 14.99)).toFixed(2)}</span>
+              <span className="text-gradient-gold">₹{(totalPrice + (totalPrice >= 5000 ? 0 : 499)).toLocaleString("en-IN")}</span>
             </div>
             <Link to="/checkout" className="mt-6 block w-full rounded-xl bg-primary py-3 text-center text-sm font-semibold text-primary-foreground shadow-gold transition-all hover:opacity-90">
               Proceed to Checkout
