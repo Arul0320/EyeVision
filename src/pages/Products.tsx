@@ -14,7 +14,8 @@ const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [selectedBrand, setSelectedBrand] = useState("");
   const [sortBy, setSortBy] = useState("featured");
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 2000]);
+  const maxPrice = Math.max(...products.map((p) => p.price), 0);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, maxPrice]);
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   const filtered = useMemo(() => {
@@ -29,7 +30,7 @@ const Products = () => {
     return result;
   }, [selectedCategory, selectedBrand, sortBy, priceRange, searchQuery]);
 
-  const clearFilters = () => { setSelectedCategory(""); setSelectedBrand(""); setPriceRange([0, 2000]); setSortBy("featured"); };
+  const clearFilters = () => { setSelectedCategory(""); setSelectedBrand(""); setPriceRange([0, maxPrice]); setSortBy("featured"); };
 
   const FilterPanel = () => (
     <div className="space-y-6">

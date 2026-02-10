@@ -72,7 +72,7 @@ const Checkout = () => {
             </div>
 
             {/* Payment */}
-            <div className="rounded-xl border border-border bg-gradient-card p-6">
+            {/* <div className="rounded-xl border border-border bg-gradient-card p-6">
               <h2 className="mb-4 font-serif text-xl font-semibold text-foreground">Payment Details</h2>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="sm:col-span-2">
@@ -88,7 +88,7 @@ const Checkout = () => {
                   <input name="cvv" type="password" value={form.cvv} onChange={handleChange} required className={inputClass} placeholder="•••" maxLength={4} />
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Order Summary */}

@@ -20,7 +20,7 @@ const App = () => (
       <CartProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter >
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/products" element={<Products />} />

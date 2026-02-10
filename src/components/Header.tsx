@@ -16,7 +16,7 @@ const Header = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <Star className="h-7 w-7 text-primary animate-pulse-gold" />
-          <span className="font-serif text-2xl font-bold text-gradient-gold">AstroMart</span>
+          <span className="font-serif text-2xl font-bold text-gradient-gold">Eye Vision</span>
         </Link>
 
         {/* Desktop Nav */}
